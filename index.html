@@ -39,7 +39,7 @@
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', META_PIXEL_ID);
     fbq('track', 'PageView');
-    fbq('track', 'ViewContent', { content_name: 'La Guía de la Mujer Sabia', value: 27.90, currency: 'BRL' });
+    fbq('track', 'ViewContent', { content_name: 'La Guía de la Mujer Sabia', value: 19.90, currency: 'USD' });
   }
 
   // ---- Google Analytics 4 ----
@@ -52,7 +52,7 @@
     window.gtag = function(){ dataLayer.push(arguments); };
     gtag('js', new Date());
     gtag('config', GA_MEASUREMENT_ID);
-    gtag('event', 'view_item', { currency: 'BRL', value: 27.90, items: [{ item_name: 'La Guía de la Mujer Sabia', price: 27.90 }] });
+    gtag('event', 'view_item', { currency: 'USD', value: 19.90, items: [{ item_name: 'La Guía de la Mujer Sabia', price: 19.90 }] });
   }
 </script>
 
@@ -953,7 +953,7 @@ section{padding:88px 0}
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Listas de control</li>
           <li class="off"><svg aria-hidden="true"><use href="#i-x"/></svg>Sin los 4 bonos</li>
         </ul>
-        <a class="btn btn-block" href="#oferta" data-cta="essencial" data-plan="essencial" data-value="17.90">QUIERO EL ESENCIAL <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-block" href="#oferta" data-cta="essencial" data-plan="essencial" data-value="9.90">QUIERO EL ESENCIAL <span class="arr" aria-hidden="true">→</span></a>
         <p class="micro">Pago único • Acceso inmediato • Garantía de 7 días</p>
       </article>
 
@@ -972,7 +972,7 @@ section{padding:88px 0}
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bono 3: Plan de 7 Días para Recuperar tu Centro</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bono 4: Mapa: ¿Qué Hacer Ahora?</li>
         </ul>
-        <a class="btn btn-block" href="#oferta" data-cta="completo" data-plan="completo" data-value="27.90">QUIERO EL COMPLETO <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-block" href="#oferta" data-cta="completo" data-plan="completo" data-value="19.90">QUIERO EL COMPLETO <span class="arr" aria-hidden="true">→</span></a>
         <p class="micro">Pago único • Acceso inmediato • Acceso de por vida • Garantía de 7 días</p>
       </article>
     </div>
@@ -1074,8 +1074,8 @@ section{padding:88px 0}
    Os demais botões da página levam até a seção de ofertas.
    UTMs e identificadores de clique da URL atual são repassados ao checkout.
    ============================================================ */
-const CHECKOUT_URL_ESSENCIAL = "COLE_AQUI_O_LINK_DO_CHECKOUT_ESSENCIAL";
-const CHECKOUT_URL_COMPLETO  = "COLE_AQUI_O_LINK_DO_CHECKOUT_COMPLETO";
+const CHECKOUT_URL_ESSENCIAL = "https://checkout.mundpay.com/01a0fe2d-2556-72ae-a1f9-863e842f66de?ref=";
+const CHECKOUT_URL_COMPLETO  = "https://checkout.mundpay.com/01a0f96c-cd52-73c2-85e9-c795e62fc748?ref=";
 
 (function () {
   var CHECKOUTS = { essencial: CHECKOUT_URL_ESSENCIAL, completo: CHECKOUT_URL_COMPLETO };
@@ -1105,10 +1105,10 @@ const CHECKOUT_URL_COMPLETO  = "COLE_AQUI_O_LINK_DO_CHECKOUT_COMPLETO";
     btn.addEventListener('click', function (e) {
       // InitiateCheckout (Meta) e begin_checkout (GA4) — Purchase fica no checkout
       if (typeof window.fbq === 'function') {
-        fbq('track', 'InitiateCheckout', { content_name: 'La Guía de la Mujer Sabia - ' + plan, value: value, currency: 'BRL' });
+        fbq('track', 'InitiateCheckout', { content_name: 'La Guía de la Mujer Sabia - ' + plan, value: value, currency: 'USD' });
       }
       if (typeof window.gtag === 'function') {
-        gtag('event', 'begin_checkout', { currency: 'BRL', value: value, plano: plan, transport_type: 'beacon' });
+        gtag('event', 'begin_checkout', { currency: 'USD', value: value, plano: plan, transport_type: 'beacon' });
       }
       if (!checkout) {
         e.preventDefault();
